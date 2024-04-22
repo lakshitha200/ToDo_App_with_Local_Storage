@@ -115,17 +115,7 @@ ul li:hover{
 
 }
 
-.ok{
-    width: 400px;
-}
-.ok li{
-    width: 400px;
-}
-
 .data{
     width: 440px;
     position: relative;
-}
-.p-width{
-    width: 340px !important;
 }
