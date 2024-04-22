@@ -29,6 +29,7 @@
 }
 
 .title{
+    height: 10%;
     display: flex;
     align-items: center;
 }
@@ -38,10 +39,10 @@
 }
 
 .row{
-    margin-top: 20px;
+    height: 10%;
     display: flex;
-    margin-bottom: 20px;
     width: 100%;
+    padding-top: 7px;
 }
 #input-box{
     flex:1;
@@ -56,13 +57,14 @@ button{
     margin-left: 3px;
     color: #fff;
     cursor: pointer;
+    height: 30px;
 }
 button:hover{
     background-color: #008631;
 }
 
 .scroll{
-    height: 370px;
+    height: 80%;
     width: 100%;
     overflow-y: scroll;
     scrollbar-color: rgb(255, 0, 0) rgb(224, 224, 224);
@@ -72,8 +74,7 @@ button:hover{
 ul li{
     position: relative;
     list-style: none;
-    padding: 5px 5px;
-    margin: 5px 0;
+    padding: 7px 5px;
     padding-left: 35px;
     display: flex;
     justify-content: space-between;
@@ -118,4 +119,21 @@ ul li:hover{
 .data{
     width: 440px;
     position: relative;
+}
+
+@media screen and (max-width:489px) {
+
+    .container{
+        width: 100%;
+        height: 100vh;
+    }
+
+    .box{
+        max-width: 340px;
+        width: 100%;
+    }
+    
+    .todo-app{
+        width: 340px;
+    }
 }
