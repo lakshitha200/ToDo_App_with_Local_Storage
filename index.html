@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo App</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 
@@ -16,8 +17,12 @@
                     <img class="logo" src="img/logo.png">
                 </div>
                 <div class="row">
-                    <input type="text" id="input-box" placeholder="Add Your Text">
-                    <button onclick="addTask()">Add Text</button>
+                    <div>
+                        <input type="text" id="input-box" placeholder="Add Your Text">
+                        <input type="date" id="exprieDate" min="" placeholder="date">
+                    </div>
+
+                    <button onclick="addTask()">Add Task</button>
                 </div>
     
                 <ul id="list-container" class="scroll">
@@ -25,11 +30,19 @@
                     <li>Task 1</li>
                     <li>Task 1</li> -->
                 </ul>
+
+                <div id="dark"></div>
+                <div id="dateChange-box">
+                    <i class="fa-solid fa-xmark" onclick="closeWindow()"></i>
+                    <p>Change Date (YYYY-MM-DD)</p>
+                    <p style="color: red;margin-top: 5px;">This feature will be available soon!</p>
+                    <div>
+                        <input type="text" value="" id="expireDate-box">
+                        <button type="button">Set</button>
+                    </div>
+                </div>
             </div>
         </div>
-
-
-
     </div>
 
     <script src="script.js"></script>
