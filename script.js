@@ -102,18 +102,69 @@ showList();
 const dateChangeBox = document.getElementById("dateChange-box");
 const dark = document.getElementById("dark");
 const expireDateBox = document.getElementById("expireDate-box");
+document.getElementById("expireDate-box").setAttribute('min',today);
+
+var currentLi;
+var liList;
+var liArray;
+var index;
+var newExpireDate;
+
 function expireDateChange(element){
+    this.currentLi = element.parentElement.parentElement.parentElement;
+    this.liList = element.parentElement.parentElement.parentElement.parentElement.children;
+    this.liArray = Array.from(liList);
+    console.log(this.liArray)
+    for(let i=0;i< this.liArray.length;i++){
+        if( this.liArray[i]==this.currentLi){
+            this.index = i;
+            break;
+        }
+    }
     dateChangeBox.style.display = "block";
     dark.style.display = "block";
     if (element && element.parentElement) {
         const expireDateText = element.parentElement.textContent.replace('Expire: ', '').trim();
         expireDateBox.value = expireDateText;
+        this.newExpireDate = expireDateBox.value;
     } else {
         console.error("Element or parentElement is not defined");
     }
+    // console.log(localStorage.getItem("data"));
 };
+
+function setExpireDate(){
+   
+    // this.currentLi.c.removeChild(list.children[0]);
+    this.currentLi.lastChild.lastChild.innerHTML = `Expire: ${expireDateBox.value} <i class="fa-solid fa-pen-to-square" onclick="expireDateChange(this)"></i>`;
+    console.log(this.currentLi.lastChild.lastChild)
+
+    this.liArray.splice(this.index,1,this.currentLi)
+    console.log(currentLi)
+    currentLi.classList.remove("red")
+    listContainer.replaceChild(currentLi,listContainer.children[this.index]);
+    localStorage.setItem("data",listContainer.innerHTML);
+    closeWindow();
+}
 
 function closeWindow(){
     dateChangeBox.style.display = "none";
     dark.style.display = "none";
 };
+
+
+
+function changeColourIfExpired(){
+    let li = listContainer.children;
+
+    for(let i=0;i< li.length;i++){
+        const expireDateText = listContainer.children[i].lastChild.lastChild.textContent.replace('Expire: ', '').trim();
+        if(expireDateText < today){
+            console.log(li[i])
+            li[i].classList.add("red")
+        }
+        
+    }
+}
+
+changeColourIfExpired();

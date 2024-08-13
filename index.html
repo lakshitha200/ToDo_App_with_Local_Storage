@@ -35,10 +35,9 @@
                 <div id="dateChange-box">
                     <i class="fa-solid fa-xmark" onclick="closeWindow()"></i>
                     <p>Change Date (YYYY-MM-DD)</p>
-                    <p style="color: red;margin-top: 5px;">This feature will be available soon!</p>
                     <div>
-                        <input type="text" value="" id="expireDate-box">
-                        <button type="button">Set</button>
+                        <input type="date" value="" id="expireDate-box" min="">
+                        <button type="button" onclick="setExpireDate()">Set</button>
                     </div>
                 </div>
             </div>
